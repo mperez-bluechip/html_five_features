@@ -4,9 +4,9 @@
 <head>
     <title>Bank activity</title>
 	<link rel="stylesheet" type="text/css" href="MyStylesheet.css"/>
-	
+
 	<script>
-	
+
 		// Global variables.
 		var balance = 0.0;
 		var childWindowUrl = "http://mydomain2/ChildWindow.html";
@@ -15,13 +15,13 @@
 		var childWindowWidth = 250;
 		var childWindowHeight = 100;
 		var windowTopCoord = 0;
-		
+
 		function deposit() {
 			var amountBox = document.querySelector("#amount");
 			balance += parseFloat(amountBox.value);
 			alert("New balance is " + balance);
 		}
-			
+
 		function withdraw() {
 			var amountBox = document.querySelector("#amount");
 			balance -= parseFloat(amountBox.value);
@@ -33,8 +33,8 @@
 			var rhsEdge = window.screenX + window.outerWidth;
 
 			var win = window.open(childWindowUrl, "", "width=250" +
-			                                          ", height=100" + 
-			                                          ", top=" + (topEdge + windowTopCoord + 2) + 
+			                                          ", height=100" +
+			                                          ", top=" + (topEdge + windowTopCoord + 2) +
 													  ", left=" + (rhsEdge + 2));
 			windowTopCoord += 175;
 
@@ -53,8 +53,8 @@
 
 		// Handle messages sent from child window.
 		function onMessage(e) {
-	
-			if (e.origin == "http://mydomain2") {		
+
+			if (e.origin == "http://mydomain2") {
 				alert("Main window accepting message from " + e.origin);
 				balance -= e.data;
 				broadcast();
@@ -67,7 +67,7 @@
 		window.addEventListener("message", onMessage, true);
 
 	</script>
-	
+
 </head>
 <body>
 
@@ -76,9 +76,9 @@
 	<button onclick="deposit()">Deposit</button>
 	<button onclick="withdraw()">Withdraw</button>
 	<br/><br/>
-	
+
 	<button onclick="newWindow()">New Window</button>
 	<button onclick="broadcast()">Broadcast</button>
 
 </body>
-</head>	
+</head>

@@ -9,14 +9,14 @@
 		// Handles messages sent from main window.
 		function onMessage(e) {
 			// Check who sent me this message.
-			if (e.origin == "http://mydomain1") {		
+			if (e.origin == "http://mydomain1") {
 				document.getElementById("balance").innerHTML = e.data;
 			} else {
 				alert("Child window rejecting message from " + e.origin);
 			}
 		}
 
-		// Posts a message back to main window, to levy a fee of £10 on the account.
+		// Posts a message back to main window, to levy a fee of ï¿½10 on the account.
 		function levyFee() {
 			window.opener.postMessage(10, "*");
 		}
@@ -34,6 +34,6 @@
 	</div>
 
 	<button onclick="levyFee()">Levy fee</button>
-	
+
 </body>
 </head>
