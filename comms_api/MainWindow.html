@@ -9,7 +9,7 @@
 
 		// Global variables.
 		var balance = 0.0;
-		var childWindowUrl = "http://mydomain2/ChildWindow.html";
+		var childWindowUrl = "http://localhost:8888/ChildWindow.html";
 		var childWindows = new Array();
 
 		var childWindowWidth = 250;
@@ -17,9 +17,11 @@
 		var windowTopCoord = 0;
 
 		function deposit() {
+
 			var amountBox = document.querySelector("#amount");
 			balance += parseFloat(amountBox.value);
 			alert("New balance is " + balance);
+
 		}
 
 		function withdraw() {
@@ -51,17 +53,22 @@
 			}
 		}
 
-		// Handle messages sent from child window.
+		//Handle messages sent from child window.
+  setTimeout(function(){
 		function onMessage(e) {
-
-			if (e.origin == "http://mydomain2") {
+			if (e.origin == "http://localhost:8888") {
 				alert("Main window accepting message from " + e.origin);
 				balance -= e.data;
+        // return localStorage.setItem(balance);
 				broadcast();
 			} else {
 				alert("Child window rejecting message from " + e.origin);
 			}
 		}
+  },100);
+
+  clearTimeout();
+
 
 		// Set up a handler for messages sent from the child window.
 		window.addEventListener("message", onMessage, true);

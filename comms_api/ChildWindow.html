@@ -7,16 +7,25 @@
 	<script>
 
 		// Handles messages sent from main window.
+
 		function onMessage(e) {
+
+			// var currBal = parseFloat(localStorage.getItem(balance));
 			// Check who sent me this message.
-			if (e.origin == "http://mydomain1") {
+			if (e.origin == "http://localhost:8888") {
+
 				document.getElementById("balance").innerHTML = e.data;
 			} else {
 				alert("Child window rejecting message from " + e.origin);
 			}
 		}
 
-		// Posts a message back to main window, to levy a fee of �10 on the account.
+
+
+	  clearTimeout();
+
+
+		// Posts a message back to main window, to levy a fee of lire 10 on the account.
 		function levyFee() {
 			window.opener.postMessage(10, "*");
 		}
