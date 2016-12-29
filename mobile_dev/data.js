@@ -1,11 +1,11 @@
-// Hard-coded "courses" array, to get us started.
+ // Hard-coded "courses" array, to get us started.
 var courses = [
 	{ id: 1, name: "HTML5",       duration: 4,  certification: false },
 	{ id: 2, name: "ASP.NET MVC", duration: 4,  certification: true  },
 	{ id: 3, name: "WCF",         duration: 5,  certification: true  },
 	{ id: 4, name: "JavaScript",  duration: 4,  certification: true  },
 	{ id: 6, name: "jQuery",      duration: 3,  certification: false },
-	{ id: 5, name: "Spring",      duration: 5,  certification: true  } 
+	{ id: 5, name: "Spring",      duration: 5,  certification: true  }
 ];
 
 
@@ -17,7 +17,7 @@ var courses = [
 $(document).ready(function() {
 
 	if (window.localStorage) {
-	
+
 		var fromDb = localStorage.getItem("courses");
 		if (fromDb) {
 			// Read the courses from local storage, into the global "courses" array.
@@ -40,7 +40,7 @@ function storeCourses() {
 }
 
 
-// Creates a new "course" object, adds it to the global "courses" array, and then saves to local storage.  
+// Creates a new "course" object, adds it to the global "courses" array, and then saves to local storage.
 function addCourse(courseName, duration, certification) {
 
 	var newId = getNewCourseId();
@@ -50,16 +50,16 @@ function addCourse(courseName, duration, certification) {
 		name: courseName,
 		duration: duration,
 		certification: certification
-	}	
-	
+	}
+
 	courses.push(newCourse);
 	storeCourses();
-	
+
 	return newId;
 }
 
 
-// Removes an existing "course" object from the global "courses" array, and then saves to local storage.  
+// Removes an existing "course" object from the global "courses" array, and then saves to local storage.
 function removeCourse(id) {
 
 	var index = getIndexForId(id);
@@ -80,7 +80,7 @@ function getNewCourseId() {
 	var max = 0;
 	for (var c = 0; c < courses.length; c++) {
 		if (courses[c].id > max)
-			max = courses[c].id;		
+			max = courses[c].id;
 	}
 	return max + 1;
 }
@@ -102,7 +102,7 @@ function getIndexForId(id) {
 
 // Gets the "course" object with a specific ID.
 function getCourseById(id) {
-	
+
 	var index = getIndexForId(id);
 	if (index < 0)
 		return null
