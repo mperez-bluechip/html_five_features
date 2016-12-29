@@ -9,7 +9,7 @@
  *    node socketserverWS.js
  *
  * To test this server is running, open a browser and enter this URL:
- *    http://localhost:8889  (this should display index.html in the browser)
+ *    http://localhost:8888   (this should display index.html in the browser)
  *
  * To run the client, copy socketclient.html to the localhost folder and enter this URL in a browser:
  *    http://localhost/socketclient.html
@@ -48,9 +48,9 @@ function onHttpRequest(request, response) {
 	}
 }
 
-// Start the HTTP server object listening on port 8889.
-server.listen(8889, function() {
-	console.log((new Date()) + ' Server is listening on port 8889');
+// Start the HTTP server object listening on port 8888.
+server.listen(8888, function() {
+	console.log((new Date()) + ' Server is listening on port 8888');
 });
 
 
