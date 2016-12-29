@@ -4,12 +4,12 @@
  *
  * This server uses the Node.js WebSocketServer module. So type the following in a command prompt:
  *    npm install websocket@1.0.3
- * 
+ *
  * To start this server, type the following in a command prompt:
  *    node socketserverWS.js
  *
- * To test this server is running, open a browser and enter this URL:  
- *    http://localhost:8888   (this should display index.html in the browser)
+ * To test this server is running, open a browser and enter this URL:
+ *    http://localhost:8889  (this should display index.html in the browser)
  *
  * To run the client, copy socketclient.html to the localhost folder and enter this URL in a browser:
  *    http://localhost/socketclient.html
@@ -21,13 +21,13 @@ var http = require('http');
 var fs = require('fs');
 
 
-/* ================================================================================================= 
+/* =================================================================================================
  * HTTP handler
  * =================================================================================================*/
 
 // Create an HTTP server object.
 var server = http.createServer(onHttpRequest);
- 
+
 // Handle HTTP requests.
 function onHttpRequest(request, response) {
 	console.log((new Date()) + ' Received HTTP request for ' + request.url);
@@ -48,13 +48,13 @@ function onHttpRequest(request, response) {
 	}
 }
 
-// Start the HTTP server object listening on port 8888.
-server.listen(8888, function() {
-	console.log((new Date()) + ' Server is listening on port 8888');
+// Start the HTTP server object listening on port 8889.
+server.listen(8889, function() {
+	console.log((new Date()) + ' Server is listening on port 8889');
 });
 
 
-/* ================================================================================================= 
+/* =================================================================================================
  * Web Sockets server
  * =================================================================================================*/
 
